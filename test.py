@@ -144,7 +144,7 @@ class LinearRegressionTestCase(unittest.TestCase):
             x = gj_Solve(A.tolist(),b.tolist(),epsilon=1.0e-8)
 
             if np.linalg.matrix_rank(A) < r:
-                self.assertEqual(x,None,"Matrix A is singular")
+                self.assertEqual(x,None,"Matrix A is singular,A={},b={}".format(A.tolist(),b.tolist()))
             else:
                 self.assertNotEqual(x,None,"Matrix A is not singular")
                 self.assertEqual(np.array(x).shape,(r,1),"Expected shape({},1), but got shape{}".format(r,np.array(x).shape))
